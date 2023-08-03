@@ -6,7 +6,7 @@
 /*   By: makbas <makbas@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 16:47:29 by makbas            #+#    #+#             */
-/*   Updated: 2023/08/03 19:57:05 by makbas           ###   ########.fr       */
+/*   Updated: 2023/08/03 23:53:24 by makbas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,32 +14,31 @@
 
 void    list_main(PhoneBook &phone)
 {
-    cout << "select the action you want to do\n";
+    cout << "***Choose your action***\n";
     cout << "1- ADD\n2- SEARCH\n3- EXIT\nYour Choose: ";
-    int choose;
+    string choose;
     cin >> choose;
-    if (choose == 1)
+    if (choose == "ADD")
     {
         phone.add_contact();
     }
-    else if (choose == 2)
+    else if (choose == "SEARCH")
     {
         phone.search();
     }
-    else if (choose == 3)
+    else if (choose == "EXIT")
     {
         exit(0);
     }
     else
-    {
-        cout << "An invalid choice has been made. Try again...\n    ";
-        list_main(phone);
-    }
+        cout << "An invalid choice has been made. Try again...\n";
 }
 
-int main(int ac, char **av)
+int main()
 {
     PhoneBook phone;
+    cout << "WELCOME TO THE YOUR PHONE\n";
+    cout << "*************************\n\n";
     while (1)
         list_main(phone);
 }

@@ -6,11 +6,23 @@
 /*   By: makbas <makbas@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 15:41:01 by makbas            #+#    #+#             */
-/*   Updated: 2023/08/03 20:11:49 by makbas           ###   ########.fr       */
+/*   Updated: 2023/08/03 23:57:45 by makbas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "phonebook.hpp"
+
+bool    is_number(string number)
+{
+    int i = 0;
+    while (number[i])
+    {
+        if (!(number[i] > '0' && number[i] < '9'))
+            return (0);
+        i++;
+    }
+    return (1);
+}
 
 
 void    PhoneBook::add_contact()
@@ -19,6 +31,7 @@ void    PhoneBook::add_contact()
     string  str;
     if (i >= 8)
         i = 0;
+    cout << "..........................\n";
     cout << "FIRSTNAME : ";
     name:
     getline(cin, str);
@@ -39,8 +52,8 @@ void    PhoneBook::add_contact()
     contact[i].set_username(str);
     cout << "PHONE NUMBER : ";
     phone:
-    getline(cin, str);
-    if (str == "\0")
+    cin >> str;
+    if (!is_number(str))
         goto phone;
     contact[i].set_phone(str);
     cout << "DARK SECRET : ";
@@ -49,6 +62,7 @@ void    PhoneBook::add_contact()
     if (str == "\0")
         goto secret;
     contact[i].set_secret(str);
+    cout << "..........................\n";
     cout << endl;
     contact[i].set_index(i + 1);
     if (index_count < 8)
@@ -97,12 +111,37 @@ void    write_info(PhoneBook *phone, int i)
     cout << ten_character(phone->get_contact(i).get_username()) << " | \n";
 }
 
+void    write_detail_info(PhoneBook *phone, int i)
+{
+    cout << "..........................\n";
+    cout << "Name : " << phone->get_contact(i).get_name() << endl;
+    cout << "Surname : " << phone->get_contact(i).get_surname() << endl;
+    cout << "Username : " << phone->get_contact(i).get_username() << endl;
+    cout << "Phone Number : " << phone->get_contact(i).get_phone() << endl;
+    cout << "Dark Secret : " << phone->get_contact(i).get_secret() << endl;
+    cout << "..........................\n\n";
+}
+
 void    PhoneBook::search(void)
 {
     int i;
-
+    int index;
+    
     i = 0;
-    while (i++ < index_count)
+    cout << "..........................\n";
+    while (i < index_count)
+    {
         write_info(this, i);
+        i++;
+    }
+    cout << "..........................\n";
+    cout << "Enter index for person's information : ";
+    cin >> index;
+    if (index <= index_count)
+        write_detail_info(this, index - 1);
+    else if (index <= 0 || index > index_count)
+        cout << "invalid value\n\n";
+    else
+        cout << "No Records Found\n\n";
 }
 
