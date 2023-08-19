@@ -3,5 +3,5 @@
 int main()
 {
    Harl deneme;
-   deneme.complain("DEBUG");
+   deneme.complain("a");
 }
