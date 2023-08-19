@@ -1,7 +1,34 @@
 #include "Harl.hpp"
 
 void Harl::complain(std::string level){
+    std::string  str[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+
+    int i = 0;
+    while (i < 4)
+    {
+        if (level == str[i])
+            break;
+        i++;
+    }
     
+    switch (i)
+    {
+    case 0:
+        debug();
+        break;
+    case 1:
+        info();
+        break;
+    case 2:
+        warning();
+        break;
+    case 3:
+        error();
+        break;
+    default:
+        std::cout << "[DEFAULT]\n" << "this is default message";
+        break;
+    }
 }
 
 void Harl::debug(void) {
