@@ -2,6 +2,6 @@
 
 int main()
 {
-   Harl deneme;
-   deneme.complain("a");
+   Harl ex;
+   ex.complain("INFO");
 }

@@ -1,0 +1,51 @@
+00
+
+• Bir yapıcıya parametre olarak iletilen ad
+• Can puanı (10), ClapTrap'in sağlığını temsil eder
+• Enerji noktaları (10)
+• Saldırı hasarı (0)
+
+ClapTrap'in daha gerçekçi görünmesi için aşağıdaki genel üye işlevlerini ekleyin:
+•void saldırısı(const std::string& target);
+• geçersiz takeDamage(imzasız int miktarı);
+•void beRepaired(imzasız int miktarı);
+
+ClapTrack saldırdığında hedefinin <saldırı hasarı> can puanı kaybetmesine neden olur. 
+ClapTrap kendini onardığında <amount> vuruş puanını geri alır. 
+Saldırı ve onarımın her biri 1 enerji puanına mal olur. 
+Elbette ClapTrap'in can puanı veya enerji puanı kalmamışsa hiçbir şey yapamaz.
+
+Bu üye fonksiyonlarının tümünde, ne olduğunu açıklayan bir mesaj yazdırmanız gerekir. 
+Örneğin, Attack() işlevi şunun gibi bir şey görüntüleyebilir 
+(tabii ki köşeli ayraçlar olmadan):
+
+ClapTrap <isim>, <hedef>'e saldırarak <damage> puanlık hasara neden olur!
+
+Akran değerlendiricilerinizin çağrıldıklarını kolayca görebilmeleri için 
+yapıcıların ve yıkıcıların da bir mesaj görüntülemesi gerekir. 
+Kodunuzun beklendiği gibi çalıştığından emin olmak için kendi 
+testlerinizi uygulayın ve teslim edin.
+
+01
+Hiçbir zaman yeterli ClapTraps'e sahip olamayacağınız için 
+artık türetilmiş bir robot yaratacaksınız. ScavTrap olarak 
+adlandırılacak ve yapıcıları ve yıkıcıları ClapTrap'ten 
+devralacak. Ancak yapıcıları, yıkıcısı ve saldırı()'sı farklı 
+mesajlar basacaktır. Sonuçta ClapTraps kendi bireyselliğinin 
+farkındadır.
+
+Testlerinizde uygun inşaat/yıkım zincirinin gösterilmesi gerektiğini 
+unutmayın. Bir ScavTrap oluşturulduğunda program bir ClapTrap oluşturarak
+başlar. Yıkım ters sırada gerçekleşir. Neden?
+
+ScavTrap, ClapTrap'in özelliklerini kullanacak 
+(sonuç olarak ClapTrap'i güncelleyecektir) ve bunları şu şekilde başlatmalıdır:
+• Bir yapıcıya parametre olarak aktarılan ad
+• Can puanı (100), ClapTrap'in sağlığını temsil eder
+•Enerji puanları (50)
+•Saldırı hasarı (20)
+ScavTrap'in ayrıca kendi özel kapasitesi olacaktır:
+void guardGate();
+
+Bu üye işlevi, ScavTrap'in artık Geçit bekçisi modunda olduğunu bildiren bir mesaj görüntüleyecektir.
+Programınıza daha fazla test eklemeyi unutmayın.

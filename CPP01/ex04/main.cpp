@@ -1,8 +1,8 @@
 #include "Replace.hpp"
 
-string  filename(string file)
+std::string  ft_filename(std::string file)
 {
-    string  newFile;
+    std::string  newFile;
     int loc;
     int len;
     loc = file.find('.');
@@ -15,38 +15,36 @@ string  filename(string file)
 int main(int ac, char **av)
 {
     if (ac == 4){
-        ifstream inFile(av[1]);
-        string fileName;
-        string findStr = av[2];
-        string replaceStr = av[3];
-        string line;
-        int len;
+        std::ifstream inFile(av[1]);
+        std::string fileName;
+        std::string findStr = av[2];
+        std::string replaceStr = av[3];
+        std::string line;
         
         if (!inFile){
-            cout << "File is not open.\n";
+            std::cout << "File is not open.\n";
             exit(0);
         }
         inFile.seekg(0, std::ios::end);
         if (inFile.tellg() == 0){
-            cout << "File is empty.\n";
+            std::cout << "File is empty.\n";
             exit(0);
         }
         inFile.seekg(0, std::ios::beg);
-        fileName = filename(av[1]);
-        ofstream outFile(fileName + ".replace");
+        fileName = ft_filename(av[1]);
+        std::ofstream outFile(fileName + ".replace");
         while (getline(inFile, line))
         {
-            if (line.find(findStr) != string::npos)
+            size_t found = 0;
+            while ((found = line.find(findStr, found)) != std::string::npos)
             {
-                len = line.find(findStr);
-                line.erase(len, findStr.length());
-                line.insert(len, av[3]);
+                line.replace(found, findStr.length(), replaceStr);
+                found += replaceStr.length();
             }
-            outFile << line << endl;
+            outFile << line << std::endl;
         }
         outFile.close();
         inFile.close();
     }
-    
-    return (0);
+    return 0;
 }

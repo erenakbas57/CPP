@@ -6,18 +6,18 @@
 /*   By: makbas <makbas@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 16:47:29 by makbas            #+#    #+#             */
-/*   Updated: 2023/08/03 23:53:24 by makbas           ###   ########.fr       */
+/*   Updated: 2023/10/23 16:52:41 by makbas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phonebook.hpp"
+#include "PhoneBook.hpp"
 
 void    list_main(PhoneBook &phone)
 {
     cout << "***Choose your action***\n";
-    cout << "1- ADD\n2- SEARCH\n3- EXIT\nYour Choose: ";
+    cout << "1- ADD\n2- SEARCH\n3- EXIT\n\nYour Choose: ";
     string choose;
-    cin >> choose;
+    getline(cin, choose);
     if (choose == "ADD")
     {
         phone.add_contact();
@@ -31,7 +31,7 @@ void    list_main(PhoneBook &phone)
         exit(0);
     }
     else
-        cout << "An invalid choice has been made. Try again...\n";
+        cout << "An invalid choice has been made. Try again...\n\n";
 }
 
 int main()

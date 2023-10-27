@@ -1,6 +1,6 @@
 NAME		= replace
 SRCS		= main.cpp 
-CC			= c++
+CPP			= c++
 CPPFLAGS	= -Wall -Wextra -Werror -std=c++98
 OBJ			= $(SRCS:.cpp=.o)
 RM 			= rm -rf
@@ -8,7 +8,7 @@ RM 			= rm -rf
 all		: $(NAME)
 
 $(NAME): $(OBJ)
-		 $(CC) $(CPPFLAGS) $(OBJ) -o $(NAME)
+		 $(CPP) $(CPPFLAGS) $(OBJ) -o $(NAME)
 
 fclean	: clean
 		  $(RM) $(NAME)
@@ -18,4 +18,4 @@ clean	:
 
 re		: fclean all
 
-.PHONY	: all clean
+.PHONY:		all clean fclean re

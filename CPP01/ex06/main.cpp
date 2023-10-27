@@ -2,12 +2,12 @@
 
 int main(int ac, char **av)
 {
-   Harl deneme;
+   Harl ex;
    if (ac == 2)
    {
       std::string answer;
       answer = av[1];
-      deneme.complain(answer);
+      ex.complain(answer);
    }
    return (0);
 }

@@ -3,7 +3,6 @@
 
 #include <iostream>
 
-
 class Zombie
 {
     private:
@@ -13,8 +12,8 @@ class Zombie
         Zombie();
         ~Zombie();
         void announce(void);
-        void    set_name(std::string str) {Name = str;}
-        std::string get_name() {return (Name);}
+        void set_name(std::string str);
+        std::string get_name();
 };
 
 void randomChump(std::string name);
