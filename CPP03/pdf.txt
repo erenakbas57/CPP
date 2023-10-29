@@ -30,9 +30,10 @@ testlerinizi uygulayın ve teslim edin.
 Hiçbir zaman yeterli ClapTraps'e sahip olamayacağınız için 
 artık türetilmiş bir robot yaratacaksınız. ScavTrap olarak 
 adlandırılacak ve yapıcıları ve yıkıcıları ClapTrap'ten 
-devralacak. Ancak yapıcıları, yıkıcısı ve saldırı()'sı farklı 
-mesajlar basacaktır. Sonuçta ClapTraps kendi bireyselliğinin 
-farkındadır.
+devralacak. 
+Ancak yapıcıları, yıkıcısı ve saldırı()'sı farklı 
+mesajlar basacaktır. 
+Sonuçta ClapTraps kendi bireyselliğinin farkındadır.
 
 Testlerinizde uygun inşaat/yıkım zincirinin gösterilmesi gerektiğini 
 unutmayın. Bir ScavTrap oluşturulduğunda program bir ClapTrap oluşturarak
@@ -49,3 +50,23 @@ void guardGate();
 
 Bu üye işlevi, ScavTrap'in artık Geçit bekçisi modunda olduğunu bildiren bir mesaj görüntüleyecektir.
 Programınıza daha fazla test eklemeyi unutmayın.
+
+
+02
+ClapTraps yapmak muhtemelen sinirlerinizi bozmaya başlıyor.
+Şimdi ClapTrap'ten miras alan bir FragTrap sınıfını uygulayın. 
+ScavTrap'e çok benzer. Ancak yapım ve yıkım mesajları farklı 
+olsa gerek. Testlerinizde uygun yapım/yıkım zincirlemesinin 
+gösterilmesi gerekmektedir. Bir FragTrap oluşturulduğunda program 
+bir ClapTrap oluşturarak başlar. Yıkım ters sırada gerçekleşir.
+
+Nitelikler için aynı şeyler, ancak bu sefer farklı değerlerle:
+• Bir yapıcıya parametre olarak aktarılan ad
+• Can puanı (100), ClapTrap'in sağlığını temsil eder
+•Enerji puanları (100)
+•Saldırı hasarı (30)
+
+FragTrap'in de özel bir kapasitesi var:
+void highFivesGuys(geçersiz);
+Bu üye işlevi, standart çıktıda olumlu bir beşlik isteği görüntüler.
+Yine programınıza daha fazla test ekleyin.

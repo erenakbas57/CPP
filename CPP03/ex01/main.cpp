@@ -1,14 +1,20 @@
 #include "ClapTrap.hpp"
-
+#include "ScavTrap.hpp"
 
 int main(void)
 {
-	ClapTrap a;
-	ClapTrap b("Kevser");
-	ClapTrap c(b);
+	ScavTrap john("John Doe");
+	ClapTrap chuck("Chuck Norris");
+	ScavTrap foreign;
+	foreign = john;
 
-	a.attack("Zombie");
-	b.takeDamage(2);
-	b.beRepaired(10);
-	a = b;
+	john.attack("Chuck Norris");
+	chuck.takeDamage(0);
+	chuck.takeDamage(2);
+	chuck.beRepaired(2);
+	chuck.takeDamage(10);
+	john.takeDamage(50);
+	foreign.attack("John Doe");
+	foreign.guardGate();
+	return 0;
 }
